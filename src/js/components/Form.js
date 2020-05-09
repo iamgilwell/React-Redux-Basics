@@ -32,7 +32,7 @@ class ConnectedForm extends Component {
     render() {
         const { title } = this.state
         return (
-            <form onSubmit={this.handlSubmit}>
+            <form onSubmit={this.handleSubmit}>
                 <div>
                     <label htmlFor="title">Title</label>
                     <input
