@@ -1,7 +1,8 @@
-import { ADD_ARTICLE, CONTACT_US, ALL_ROOMS } from "../constants/action-types";
+import { ADD_ARTICLE, CONTACT_US, ALL_ROOMS, DATA_LOADED } from "../constants/action-types";
 
 const initialState = {
     articles: [],
+    remoteArticles: [],
     contactus: {
         firstName: ['Gilwell', 'Muhati', 'Okoth'],
         lastName: '',
@@ -74,6 +75,16 @@ function rootReducer(state = initialState, action) {
             }
         })
     }
+    if (action.type === DATA_LOADED) {
+        return Object.assign({}, state, {
+            remoteArticles: state.remoteArticles.concat(action.payload)
+        });
+    }
+    // if (action.type === DATA_LOADED) {
+    //     return Object.assign({}, state, {
+    //         remoteArticles: state.remoteArticles.concat(action.payload)
+    //     })
+    // }
     return state;
 }
 
